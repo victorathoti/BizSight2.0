@@ -1,7 +1,12 @@
+using BizSight.Application.DTOs.Authentication;
+using BizSight.Infrastructure;
 using BizSight.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddPersistence(builder.Configuration);
+builder.Services.AddInfrastructure();
+builder.Services.Configure<JwtSettingsDTO>(
+builder.Configuration.GetSection("JwtSettings"));
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
