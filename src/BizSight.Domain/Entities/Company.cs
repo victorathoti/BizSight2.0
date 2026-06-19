@@ -26,8 +26,6 @@ public class Company
 
     public string BusinessType { get; set; } = string.Empty;
 
-    public DateTime? LastAccessedDateTime { get; set; }
-
     public ICollection<UserCompany> UserCompanies { get; set; }
         = new List<UserCompany>();
 }
