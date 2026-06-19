@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/BizSight.Application/BizSight.Application.csproj" />
+    <Project Path="src/BizSight.Domain/BizSight.Domain.csproj" />
+    <Project Path="src/BizSight.Infrastructure/BizSight.Infrastructure.csproj" />
+    <Project Path="src/BizSight.Persistence/BizSight.Persistence.csproj" />
+    <Project Path="src/BizSight.Presentation.Api/BizSight.Presentation.Api.csproj" />
+    <Project Path="src/BizSight.Shared/BizSight.Shared.csproj" />
+  </Folder>
+  <Folder Name="/src/tests/">
+    <Project Path="src/tests/BizSight.IntegrationTests/BizSight.IntegrationTests.csproj" />
+    <Project Path="src/tests/BizSight.UnitTests/BizSight.UnitTests.csproj" />
+  </Folder>
+</Solution>
