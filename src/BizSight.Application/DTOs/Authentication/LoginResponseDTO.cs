@@ -8,15 +8,13 @@ public class LoginResponseDTO
 
     public string Token { get; set; } = string.Empty;
 
-    public Guid UserId { get; set; }
-
     public string UserName { get; set; } = string.Empty;
 
     public string Email { get; set; } = string.Empty;
 
-    public Guid CompanyId { get; set; }
+    public string CurrentCompany { get; set; } = string.Empty;
 
-    public string CompanyName { get; set; } = string.Empty;
+    public string DatabaseName { get; set; } = string.Empty;
 
-    public int TenantId { get; set; }
+    public string Role { get; set; } = string.Empty;
 }
