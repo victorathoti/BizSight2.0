@@ -23,7 +23,10 @@ public class CompanyConfiguration : IEntityTypeConfiguration<Company>
         builder.Property(x => x.ServerName)
             .HasMaxLength(500);
 
-        builder.HasIndex(x => x.TenantId)
-            .IsUnique();
+        builder.HasIndex(x => new
+        {
+            x.TenantId,
+            x.CompanyName
+        }).IsUnique();
     }
 }
