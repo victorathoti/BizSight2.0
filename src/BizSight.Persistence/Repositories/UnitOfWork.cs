@@ -6,10 +6,19 @@ namespace BizSight.Persistence.Repositories;
 public class UnitOfWork : IUnitOfWork
 {
     private readonly MasterDbContext _context;
+    public IUserRepository Users { get; }
 
-    public UnitOfWork(MasterDbContext context)
+    public ICompanyRepository Companies { get; }
+
+    public UnitOfWork(
+     MasterDbContext context,
+     IUserRepository userRepository,
+     ICompanyRepository companyRepository)
     {
         _context = context;
+
+        Users = userRepository;
+        Companies = companyRepository;
     }
 
     public async Task<int> SaveChangesAsync(

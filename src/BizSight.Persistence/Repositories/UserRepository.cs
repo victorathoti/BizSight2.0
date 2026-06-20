@@ -43,4 +43,16 @@ public class UserRepository
                 .ThenInclude(x => x.Role)
             .FirstOrDefaultAsync(x => x.Id == userId);
     }
+
+    public async Task<ApplicationUser?> GetUserForLoginAsync(string userNameOrEmail)
+    {
+        return await DbSet
+            .Include(x => x.UserCompanies)
+                .ThenInclude(x => x.Company)
+            .Include(x => x.UserRoles)
+                .ThenInclude(x => x.Role)
+            .FirstOrDefaultAsync(x =>
+                x.Email == userNameOrEmail ||
+                x.UserName == userNameOrEmail);
+    }
 }

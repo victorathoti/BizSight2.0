@@ -11,4 +11,6 @@ public interface IUserRepository : IGenericRepository<ApplicationUser>
     Task<ApplicationUser?> GetUserWithCompaniesAsync(Guid userId);
 
     Task<ApplicationUser?> GetUserWithRolesAsync(Guid userId);
+    Task<ApplicationUser?> GetUserForLoginAsync(
+    string userNameOrEmail);
 }

@@ -1,12 +1,28 @@
+using BizSight.Application.Behaviors;
 using BizSight.Application.DTOs.Authentication;
+using BizSight.Application.Features.Auth.Commands.Login;
 using BizSight.Infrastructure;
 using BizSight.Persistence;
+using FluentValidation;
+using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddPersistence(builder.Configuration);
 builder.Services.AddInfrastructure();
 builder.Services.Configure<JwtSettingsDTO>(
 builder.Configuration.GetSection("JwtSettings"));
+builder.Services.AddMediatR(cfg =>
+{
+    cfg.RegisterServicesFromAssembly(
+        typeof(LoginCommand).Assembly);
+});
+
+builder.Services.AddValidatorsFromAssembly(
+    typeof(LoginCommandValidator).Assembly);
+
+builder.Services.AddTransient(
+    typeof(IPipelineBehavior<,>),
+    typeof(ValidationBehavior<,>));
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi

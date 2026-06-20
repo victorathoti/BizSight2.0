@@ -1,4 +1,5 @@
 using BizSight.Application.Interfaces.Services;
+using BizSight.Infrastructure.Authentication;
 using BizSight.Infrastructure.Services;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,7 +11,8 @@ public static class DependencyInjection
         this IServiceCollection services)
     {
         services.AddScoped<ITokenService, TokenService>();
-
+        services.AddScoped<IPasswordHasherService,PasswordHasherService>();
+        services.AddScoped<IAuthService, AuthService>();
         return services;
     }
 }
